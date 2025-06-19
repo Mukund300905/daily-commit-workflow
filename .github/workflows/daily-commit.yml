@@ -3,7 +3,7 @@ name: Daily Commit
 on:
   schedule:
     - cron: '30 5 * * *'  # Runs daily at 11:00 AM IST
-  workflow_dispatch:      # Manual trigger option
+  workflow_dispatch:
 
 jobs:
   daily-update:
@@ -28,5 +28,5 @@ jobs:
 
       - name: Pull and push changes safely
         run: |
-          git pull --rebase origin main
+          git pull origin main --no-rebase --no-edit
           git push origin main
